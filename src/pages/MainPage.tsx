@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const MainPage = (props: RouteComponentProps<{}>) => {
+// main index page for empty route
+const MainPage = (props: RouteComponentProps<{}>): JSX.Element => {
     
     const classes = useStyles();
 

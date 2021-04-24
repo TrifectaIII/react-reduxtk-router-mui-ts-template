@@ -3,8 +3,8 @@
 - [ ] Implement responsive design for mobile view
 - [ ] Add template files for:
     - [ ] api
-    - [ ] component
-    - [ ] page
+    - [x] component
+    - [x] page
     - [ ] slice
 - [x] Figure out how to type actions
 - [x] Develop navigation system
