@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { 
+    Link,
+    RouteComponentProps,
+} from 'react-router-dom';
 
 import {
     ButtonGroup,
@@ -7,10 +10,9 @@ import {
     Typography,
     TextField,
     Box,
-} 
-from '@material-ui/core';
+} from '@material-ui/core';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../state/hooks';
 import {
     decrement,
     increment,
@@ -18,9 +20,10 @@ import {
     incrementAsync,
     incrementIfOdd,
     selectCount,
-} from './counterSlice';
+} from '../../state/counter/counterSlice';
 
-export function Counter() {
+const Counter = (props: RouteComponentProps<{}>): JSX.Element => {
+    
     const count = useAppSelector(selectCount);
     const dispatch = useAppDispatch();
     const [incrementAmount, setIncrementAmount] = useState('2');
@@ -76,3 +79,5 @@ export function Counter() {
         </Box>
     );
 }
+
+export default Counter;

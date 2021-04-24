@@ -5,32 +5,28 @@ import {
     Route,
 } from 'react-router-dom';
 
-
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 
-import { Counter } from './features/counter/Counter';
+import Counter from './pages/counter/Counter';
+import NotFound from './pages/notFound/NotFound'
+import Header from './components/Header';
 
-const TestComponent = () => {
-    return (<>Hello!</>);
-}
-
-const App = () => {
+const App = (): JSX.Element => {
     return (
-        <Container className="App">
-            <Typography
-                align='center'
-                variant='h4'
-            >
-                A starting point for web projects using React, Redux Toolkit, and Material-UI written in Typescript.
-            </Typography>
+        <>
+        <Header />
+        <Container>
             <Router>
                 <Switch>
-                    <Route exact path='/' component={Counter} />
-                    <Route path='/alternate' component={TestComponent} />
+                    <Route 
+                        exact path='/' 
+                        component={Counter} 
+                    />
+                    <Route component={NotFound} />
                 </Switch>
             </Router>
         </Container>
+        </>
     );
 }
 
