@@ -8,6 +8,7 @@ import {
     Toolbar,
     Typography,
     Switch,
+    Box,
     makeStyles,
 } from '@material-ui/core';
 import { 
@@ -43,6 +44,14 @@ const useStyles = makeStyles((theme) => ({
     right: {
         marginLeft: 'auto',
     },
+    dmToggle: {
+        cursor: 'pointer',
+        borderRadius: '0.5rem',
+        padding: '0.5rem 1rem',
+        '&:hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        },
+    },
 }));
 
 // Main page header for navigation, global state
@@ -53,6 +62,8 @@ const Header = (props: {}): JSX.Element => {
     const dispatch = useAppDispatch();
     const darkMode = useAppSelector(selectDarkMode);
     const navPoints = useAppSelector(selectNavPoints);
+
+    const DarkModeIcon = darkMode ? MoonIcon : SunIcon;
 
     return (
         <AppBar
@@ -81,16 +92,24 @@ const Header = (props: {}): JSX.Element => {
                     </Link>
                     </>
                 )}
-                <Switch
-                    checked={darkMode}
-                    onChange={()=>dispatch(toggleDarkMode())}
-                    color='default'
-                    className={classes.right}
-                />
-                {darkMode 
-                    ? <MoonIcon onClick={()=>dispatch(toggleDarkMode())} /> 
-                    : <SunIcon onClick={()=>dispatch(toggleDarkMode())} />
-                }
+
+                {/* right side */}
+                <Box className={classes.right}>
+                    <Box 
+                        alignItems='center'
+                        justifyContent='center'
+                        display='flex'
+                        onClick={()=>dispatch(toggleDarkMode())}
+                        className={classes.dmToggle}
+                    >
+                        <Switch
+                            checked={darkMode}
+                            color='default'
+                        />
+                        <DarkModeIcon />
+                    </Box>
+                </Box>
+               
             </Toolbar>
         </AppBar>
     );

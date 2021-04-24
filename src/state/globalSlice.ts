@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from './store';
 
@@ -22,16 +22,19 @@ export const globalSlice = createSlice({
     name: 'global',
     initialState,
     reducers: {
+        // toggle the mode and save to localstorage
         toggleDarkMode: (state) => {
             state.darkMode = !state.darkMode;
             localStorage.setItem('darkMode', state.darkMode ? 'on' : '') ;
         },
-        setNavPoints: (state, { payload }) => {
-            state.navPoints = payload;
+        // use payload action type to decale payload type
+        setNavPoints: (state, action: PayloadAction<NavigationPoint[]>) => {
+            state.navPoints = action.payload;
         }
     },
 });
 
+// extract actions
 export const { toggleDarkMode, setNavPoints } = globalSlice.actions;
 
 //selectors

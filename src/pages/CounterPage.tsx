@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Simple counter app to demo a page connected to state slice
-const Counter = (props: RouteComponentProps<{}>): JSX.Element => {
+const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
 
     const classes = useStyles();
     
@@ -136,4 +136,4 @@ const Counter = (props: RouteComponentProps<{}>): JSX.Element => {
     );
 }
 
-export default Counter;
+export default CounterPage;

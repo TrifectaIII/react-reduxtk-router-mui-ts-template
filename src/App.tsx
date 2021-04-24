@@ -13,9 +13,9 @@ import {
     ThemeOptions,
 } from '@material-ui/core';
 
-import Main from './pages/Main';
-import Counter from './pages/Counter';
-import NotFound from './pages/NotFound'
+import Main from './pages/MainPage';
+import Counter from './pages/CounterPage';
+import NotFound from './pages/NotFoundPage'
 import Header from './components/Header';
 import { useAppSelector } from './state/hooks';
 import { selectDarkMode } from './state/globalSlice';

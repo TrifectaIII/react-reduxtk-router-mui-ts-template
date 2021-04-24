@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // 404 not found error page
-const NotFound = (props: RouteComponentProps<{}>): JSX.Element => {
+const NotFoundPage = (props: RouteComponentProps<{}>): JSX.Element => {
 
     const classes = useStyles();
 
@@ -66,4 +66,4 @@ const NotFound = (props: RouteComponentProps<{}>): JSX.Element => {
     );
 }
 
-export default NotFound;
+export default NotFoundPage;

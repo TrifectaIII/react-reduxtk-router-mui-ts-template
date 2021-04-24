@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Main = (props: RouteComponentProps<{}>) => {
+const MainPage = (props: RouteComponentProps<{}>) => {
     
     const classes = useStyles();
 
@@ -67,4 +67,4 @@ const Main = (props: RouteComponentProps<{}>) => {
     );
 }
 
-export default Main;
+export default MainPage;

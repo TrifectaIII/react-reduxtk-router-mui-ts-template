@@ -1,6 +1,7 @@
 ## TODO
 
 - [ ] Implement responsive design for mobile view
+- [x] Figure out how to type actions
 - [x] Develop navigation system
 - [x] Figure out how to type our props
 - [x] Improve look with mui styling
