@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../store';
-import { fetchCount } from './counterAPI';
 
+import { RootState, AppThunk } from './store';
+import { fetchCount } from '../api/counterAPI';
+
+// Slice of state for counter page
 export interface CounterState {
     value: number;
     status: 'idle' | 'loading' | 'failed';

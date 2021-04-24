@@ -1,8 +1,12 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from './counter/counterSlice';
 
+import globalReducer from './globalSlice';
+import counterReducer from './counterSlice';
+
+// Store containing all state slices
 export const store = configureStore({
     reducer: {
+        global: globalReducer,
         counter: counterReducer,
     },
 });

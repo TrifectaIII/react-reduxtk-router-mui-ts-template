@@ -12,7 +12,7 @@ import {
     Box,
 } from '@material-ui/core';
 
-import { useAppSelector, useAppDispatch } from '../../state/hooks';
+import { useAppSelector, useAppDispatch } from '../state/hooks';
 import {
     decrement,
     increment,
@@ -20,8 +20,9 @@ import {
     incrementAsync,
     incrementIfOdd,
     selectCount,
-} from '../../state/counter/counterSlice';
+} from '../state/counterSlice';
 
+// Simple counter app to demo a page connected to state slice
 const Counter = (props: RouteComponentProps<{}>): JSX.Element => {
     
     const count = useAppSelector(selectCount);

@@ -4,26 +4,15 @@ import { Provider } from 'react-redux';
 
 import * as serviceWorker from './serviceWorker';
 
-import {
-    ThemeProvider,
-    createMuiTheme,
-} from '@material-ui/core/styles';
-
 import App from './App';
 import { store } from './state/store';
 
-import './index.css';
-
-const theme = createMuiTheme({
-
-});
-
+//Entry point for app
 ReactDOM.render(
     <React.StrictMode>
+        {/* provide redux store */}
         <Provider store={store}>
-            <ThemeProvider theme={theme}>
-                <App />
-            </ThemeProvider>
+            <App />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')
