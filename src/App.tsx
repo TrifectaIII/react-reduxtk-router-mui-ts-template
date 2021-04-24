@@ -8,12 +8,10 @@ import {
 import {
     Container,
     CssBaseline,
-} from '@material-ui/core';
-import {
     ThemeProvider,
     createMuiTheme,
     ThemeOptions,
-} from '@material-ui/core/styles';
+} from '@material-ui/core';
 
 import Counter from './pages/Counter';
 import NotFound from './pages/NotFound'

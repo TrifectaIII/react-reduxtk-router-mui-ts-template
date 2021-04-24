@@ -3,13 +3,13 @@ import React from 'react';
 import {
     AppBar,
     Toolbar,
-    Button,
+    // Button,
     Typography,
     IconButton,
+    makeStyles,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import { 
-    Menu as MenuIcon,
+    // Menu as MenuIcon,
     Brightness3 as MoonIcon,
     Brightness7 as SunIcon,
 } from '@material-ui/icons';
@@ -17,11 +17,14 @@ import {
 import { useAppSelector, useAppDispatch } from '../state/hooks';
 import { selectDarkMode, toggleDarkMode } from '../state/globalSlice';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
-        margin:'0',
+        flexGrow: 1,
+    },
+    title: {
+        flexGrow: 1,
     }
-});
+}));
 
 // Main page header for navigation, global state
 const Header = (props: {}): JSX.Element => {
@@ -37,15 +40,18 @@ const Header = (props: {}): JSX.Element => {
             className={classes.root}
         >
             <Toolbar>
-                <IconButton 
+                {/* <IconButton 
                     edge="start" 
                     color="inherit" 
                     aria-label="menu"
                 >
                     <MenuIcon />
-                </IconButton>
-                <Typography variant="h6">
-                    News
+                </IconButton> */}
+                <Typography 
+                    variant="h6"
+                    className={classes.title}
+                >
+                    Placeholder
                 </Typography>
                 <IconButton 
                     color="inherit" 
@@ -54,7 +60,7 @@ const Header = (props: {}): JSX.Element => {
                 >
                     {darkMode ? <SunIcon /> : <MoonIcon />}
                 </IconButton>
-                <Button color="inherit">Login</Button>
+                {/* <Button color="inherit">Login</Button> */}
             </Toolbar>
         </AppBar>
     );

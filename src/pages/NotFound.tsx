@@ -8,21 +8,21 @@ import {
     ButtonGroup,
     Typography,
     Box,
+    makeStyles,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import {
     ArrowBack as BackIcon,
     Home as HomeIcon,
 } from '@material-ui/icons';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '3em',
     },
     buttons: {
         marginTop: '3rem',
     },
-});
+}));
 
 // 404 not found error page
 const NotFound = (props: RouteComponentProps<{}>): JSX.Element => {
