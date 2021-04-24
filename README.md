@@ -1,3 +1,5 @@
+A personalized starting point using the following tools:
+
 [Create React App](https://github.com/facebook/create-react-app)
 
 [React](https://reactjs.org/)
