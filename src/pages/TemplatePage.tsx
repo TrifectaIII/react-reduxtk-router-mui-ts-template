@@ -26,7 +26,12 @@ const TemplatePage = (props: RouteComponentProps<{}>): JSX.Element => {
 
     //set nav points for header
     useEffect(() => {
-        dispatch(setNavPoints([]));
+        dispatch(setNavPoints([
+            {
+                name: 'Template',
+                route: '/template',
+            }
+        ]));
     }, [dispatch]);
 
     return (

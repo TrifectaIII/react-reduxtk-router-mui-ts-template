@@ -1,11 +1,10 @@
 ## TODO
 
 - [ ] Implement responsive design for mobile view
-- [ ] Add template files for:
-    - [ ] api
+- [x] Add template files for:
     - [x] component
     - [x] page
-    - [ ] slice
+    - [x] slice
 - [x] Figure out how to type actions
 - [x] Develop navigation system
 - [x] Figure out how to type our props
