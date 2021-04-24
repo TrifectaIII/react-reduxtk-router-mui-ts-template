@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     RouteComponentProps,
-    Link,
 } from 'react-router-dom';
 
 import {
@@ -15,6 +14,7 @@ import {
 } from '@material-ui/core';
 
 import { useAppSelector, useAppDispatch } from '../state/hooks';
+import { setNavPoints } from '../state/globalSlice';
 import {
     decrement,
     increment,
@@ -51,6 +51,18 @@ const Counter = (props: RouteComponentProps<{}>): JSX.Element => {
     
     const count = useAppSelector(selectCount);
     const dispatch = useAppDispatch();
+
+    //set nav points for header
+    useEffect(() => {
+        dispatch(setNavPoints([
+            {
+                name: 'Counter',
+                route: '/counter'
+            },
+        ]));
+    }, [dispatch]);
+    
+
     const [incrementAmount, setIncrementAmount] = useState('2');
 
     const incrementValue = Number(incrementAmount) || 0;
@@ -120,15 +132,6 @@ const Counter = (props: RouteComponentProps<{}>): JSX.Element => {
                     Add If Odd
                 </Button>
             </ButtonGroup>
-
-            <Link to='/nonexistant' className={classes.button404}>
-                <Button 
-                    color='primary' 
-                    variant='contained'
-                >
-                    Test 404 Page
-                </Button>
-            </Link>
         </Box>
     );
 }

@@ -1,7 +1,9 @@
 ## TODO
 
+- [ ] Implement responsive design for mobile view
+- [x] Develop navigation system
 - [x] Figure out how to type our props
-- [ ] Improve look with mui styling
+- [x] Improve look with mui styling
 - [x] Add dark mode
 - [x] change boilerplate to indicate placeholder
 - [x] Add 404 when route not found

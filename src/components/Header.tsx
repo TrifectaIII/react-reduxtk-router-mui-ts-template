@@ -6,20 +6,25 @@ import {
 import {
     AppBar,
     Toolbar,
-    // Button,
     Typography,
-    // IconButton,
     Switch,
     makeStyles,
 } from '@material-ui/core';
 import { 
-    // Menu as MenuIcon,
     Brightness3 as MoonIcon,
     Brightness7 as SunIcon,
+    NavigateNext as RightArrowIcon,
 } from '@material-ui/icons';
 
-import { useAppSelector, useAppDispatch } from '../state/hooks';
-import { selectDarkMode, toggleDarkMode } from '../state/globalSlice';
+import { 
+    useAppSelector, 
+    useAppDispatch 
+} from '../state/hooks';
+import { 
+    selectDarkMode, 
+    toggleDarkMode, 
+    selectNavPoints 
+} from '../state/globalSlice';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,6 +52,7 @@ const Header = (props: {}): JSX.Element => {
 
     const dispatch = useAppDispatch();
     const darkMode = useAppSelector(selectDarkMode);
+    const navPoints = useAppSelector(selectNavPoints);
 
     return (
         <AppBar
@@ -54,13 +60,6 @@ const Header = (props: {}): JSX.Element => {
             className={classes.root}
         >
             <Toolbar>
-                {/* <IconButton 
-                    edge="start" 
-                    color="inherit" 
-                    aria-label="menu"
-                >
-                    <MenuIcon />
-                </IconButton> */}
                 <Link 
                     to='/' 
                     className={classes.title} 
@@ -69,6 +68,19 @@ const Header = (props: {}): JSX.Element => {
                         Placeholder
                     </Typography>
                 </Link>
+                {navPoints.map((point) => 
+                    <>
+                    <RightArrowIcon />
+                    <Link 
+                        to={point.route}
+                        className={classes.title} 
+                    >
+                        <Typography variant="h6">
+                            {point.name}
+                        </Typography>
+                    </Link>
+                    </>
+                )}
                 <Switch
                     checked={darkMode}
                     onChange={()=>dispatch(toggleDarkMode())}
@@ -79,7 +91,6 @@ const Header = (props: {}): JSX.Element => {
                     ? <MoonIcon onClick={()=>dispatch(toggleDarkMode())} /> 
                     : <SunIcon onClick={()=>dispatch(toggleDarkMode())} />
                 }
-                {/* <Button color="inherit">Login</Button> */}
             </Toolbar>
         </AppBar>
     );

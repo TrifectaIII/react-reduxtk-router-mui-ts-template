@@ -13,6 +13,7 @@ import {
     ThemeOptions,
 } from '@material-ui/core';
 
+import Main from './pages/Main';
 import Counter from './pages/Counter';
 import NotFound from './pages/NotFound'
 import Header from './components/Header';
@@ -72,6 +73,11 @@ const App = (): JSX.Element => {
                         {/* main page */}
                         <Route
                             exact path='/'
+                            component={Main}
+                        />
+                        {/* counter app */}
+                        <Route
+                            path='/counter'
                             component={Counter}
                         />
                         {/* default to 404 */}

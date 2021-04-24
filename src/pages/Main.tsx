@@ -11,8 +11,8 @@ import {
     makeStyles,
 } from '@material-ui/core';
 import {
-    ArrowBack as BackIcon,
-    Home as HomeIcon,
+    Apps as AppsIcon,
+    Error as ErrorIcon,
 } from '@material-ui/icons';
 
 import { useAppDispatch } from '../state/hooks';
@@ -27,9 +27,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-// 404 not found error page
-const NotFound = (props: RouteComponentProps<{}>): JSX.Element => {
-
+const Main = (props: RouteComponentProps<{}>) => {
+    
     const classes = useStyles();
 
     const dispatch = useAppDispatch();
@@ -46,24 +45,26 @@ const NotFound = (props: RouteComponentProps<{}>): JSX.Element => {
             flexDirection='column'
             className={classes.root}
         >
-            <Typography variant='h1' align='center'>
-                404: Not Found
+            <Typography 
+                variant='h2' 
+                align='center'
+            >
+                React-Reduxtk-Router-Mui-TS Template
             </Typography>
-            <ButtonGroup 
+            <ButtonGroup
                 variant='contained'
                 className={classes.buttons}
             >
                 {/* buttons which function as links */}
-                <Button onClick={props.history.goBack} color='secondary'>
-                    <BackIcon /> Back
+                <Button onClick={()=>props.history.push('/counter')} color='primary'>
+                    <AppsIcon  />Counter App
                 </Button>
-                <Button onClick={()=>props.history.push('/')} color='primary'>
-                    <HomeIcon /> Home
+                <Button onClick={()=>props.history.push('/nonexistant')} color='secondary'>
+                    <ErrorIcon />Test 404 Page
                 </Button>
             </ButtonGroup>
-            
         </Box>
     );
 }
 
-export default NotFound;
+export default Main;
