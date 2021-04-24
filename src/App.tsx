@@ -20,14 +20,27 @@ import { useAppSelector } from './state/hooks';
 import { selectDarkMode } from './state/globalSlice';
 
 // set up dark and light themes
+// https://material-ui.com/customization/color/#playground
 const lightThemeOptions: ThemeOptions = {
     palette: {
         type: 'light',
+        primary: {
+            main: '#794BC4',
+        },
+        secondary: {
+            main: '#e65100',
+        },
     },
 }
 const darkThemeOptions: ThemeOptions = {
     palette: {
         type: 'dark',
+        primary: {
+            main: '#794BC4',
+        },
+        secondary: {
+            main: '#e65100',
+        },
     },
 }
 
@@ -47,25 +60,25 @@ const App = (): JSX.Element => {
             {/* normalize css */}
             <CssBaseline />
 
-                <Router>
-                    {/* include header on every page always with light theme */}
-                    <ThemeProvider theme={lightTheme}>
-                        <Header />
-                    </ThemeProvider>
+            <Router>
+                {/* include header on every page always with light theme */}
+                <ThemeProvider theme={lightTheme}>
+                    <Header />
+                </ThemeProvider>
 
-                    {/* route based on url */}
-                    <Container>
-                        <Switch>
-                            {/* main page */}
-                            <Route 
-                                exact path='/' 
-                                component={Counter} 
-                            />
-                            {/* default to 404 */}
-                            <Route component={NotFound} />
-                        </Switch>
-                    </Container>
-                </Router>
+                {/* route based on url */}
+                <Container>
+                    <Switch>
+                        {/* main page */}
+                        <Route
+                            exact path='/'
+                            component={Counter}
+                        />
+                        {/* default to 404 */}
+                        <Route component={NotFound} />
+                    </Switch>
+                </Container>
+            </Router>
         </ThemeProvider>
     );
 }

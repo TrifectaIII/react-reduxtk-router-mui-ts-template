@@ -28,8 +28,11 @@ const useStyles = makeStyles((theme) => ({
     title: {
         color: theme.palette.common.white,
         textDecoration: 'none',
+        borderRadius: '0.5rem',
+        padding: '0.5rem 1rem',
         '&:hover': {
-            textDecoration: 'underline',
+            // textDecoration: 'underline',
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
         },
     },
     right: {
@@ -62,7 +65,7 @@ const Header = (props: {}): JSX.Element => {
                     to='/' 
                     className={classes.title} 
                 >
-                    <Typography variant="h4">
+                    <Typography variant="h5">
                         Placeholder
                     </Typography>
                 </Link>
