@@ -8,7 +8,10 @@ import {
     makeStyles,
 } from '@material-ui/core';
 
-import { useAppDispatch } from '../state/hooks';
+import { 
+    useAppSelector, 
+    useAppDispatch,
+} from '../state/hooks';
 import { setNavPoints } from '../state/globalSlice';
 
 const useStyles = makeStyles((theme) => ({
