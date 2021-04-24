@@ -17,7 +17,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginTop: '3em',
+        marginTop: '3rem',
     },
     buttons: {
         marginTop: '3rem',
@@ -36,7 +36,7 @@ const NotFound = (props: RouteComponentProps<{}>): JSX.Element => {
             flexDirection='column'
             className={classes.root}
         >
-            <Typography variant='h3' align='center'>
+            <Typography variant='h1' align='center'>
                 404: Not Found
             </Typography>
             <ButtonGroup 

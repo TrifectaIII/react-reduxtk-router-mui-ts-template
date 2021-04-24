@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { 
     RouteComponentProps,
+    Link,
 } from 'react-router-dom';
 
 import {
@@ -29,6 +30,17 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop:'3rem',
+    },
+    button404: {
+        textDecoration: 'none',
+        marginTop: '3rem',
+    },
+    numInput: {
+        marginBottom: '1rem',
+    },
+    fullWidth: {
+        width:'100%',
     },
 }));
 
@@ -45,35 +57,52 @@ const Counter = (props: RouteComponentProps<{}>): JSX.Element => {
 
     return (
         <Box className={classes.root}>
+
             <Grid 
                 container 
                 justify='center'
+                alignItems='center'
             >
-                <Grid item xs={3}>
+                <Grid item xs={1}>
                     <Button
                         aria-label="Decrement value"
                         onClick={() => dispatch(decrement())}
+                        className={classes.fullWidth}
+                        color='secondary'
+                        variant='contained'
                     >
                         -
                     </Button>
                 </Grid>
                 <Grid item xs={3}>
-                <Typography align='center'>{count}</Typography>
+                    <Typography 
+                        align='center'
+                        variant='h1'
+                    >
+                            {count}
+                    </Typography>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={1}>
                     <Button
                         aria-label="Increment value"
                         onClick={() => dispatch(increment())}
+                        className={classes.fullWidth}
+                        color='primary'
+                        variant='contained'
                     >
                         +
                     </Button>
                 </Grid>
             </Grid>
+
             <TextField
                 aria-label="Set increment amount"
                 value={incrementAmount}
                 onChange={(e) => setIncrementAmount(e.target.value)}
+                variant='outlined'
+                className={classes.numInput}
             />
+
             <ButtonGroup variant='contained'>
                 <Button
                     onClick={() => dispatch(incrementByAmount(incrementValue))}
@@ -91,6 +120,15 @@ const Counter = (props: RouteComponentProps<{}>): JSX.Element => {
                     Add If Odd
                 </Button>
             </ButtonGroup>
+
+            <Link to='/nonexistant' className={classes.button404}>
+                <Button 
+                    color='primary' 
+                    variant='contained'
+                >
+                    Test 404 Page
+                </Button>
+            </Link>
         </Box>
     );
 }

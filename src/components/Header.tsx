@@ -5,7 +5,8 @@ import {
     Toolbar,
     // Button,
     Typography,
-    IconButton,
+    // IconButton,
+    Switch,
     makeStyles,
 } from '@material-ui/core';
 import { 
@@ -48,18 +49,20 @@ const Header = (props: {}): JSX.Element => {
                     <MenuIcon />
                 </IconButton> */}
                 <Typography 
-                    variant="h6"
+                    variant="h4"
                     className={classes.title}
                 >
                     Placeholder
                 </Typography>
-                <IconButton 
-                    color="inherit" 
-                    onClick={()=>dispatch(toggleDarkMode())}
-                    aria-label="toggle-dark-mode"
-                >
-                    {darkMode ? <SunIcon /> : <MoonIcon />}
-                </IconButton>
+                <Switch
+                    checked={darkMode}
+                    onChange={()=>dispatch(toggleDarkMode())}
+                    color='default'
+                />
+                {darkMode 
+                    ? <MoonIcon onClick={()=>dispatch(toggleDarkMode())} /> 
+                    : <SunIcon onClick={()=>dispatch(toggleDarkMode())} />
+                }
                 {/* <Button color="inherit">Login</Button> */}
             </Toolbar>
         </AppBar>
