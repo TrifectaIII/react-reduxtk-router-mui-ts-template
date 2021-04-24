@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+    Link,
+} from 'react-router-dom';
 
 import {
     AppBar,
@@ -20,11 +23,18 @@ import { selectDarkMode, toggleDarkMode } from '../state/globalSlice';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        
     },
     title: {
-        flexGrow: 1,
-    }
+        color: theme.palette.common.white,
+        textDecoration: 'none',
+        '&:hover': {
+            textDecoration: 'underline',
+        },
+    },
+    right: {
+        marginLeft: 'auto',
+    },
 }));
 
 // Main page header for navigation, global state
@@ -48,16 +58,19 @@ const Header = (props: {}): JSX.Element => {
                 >
                     <MenuIcon />
                 </IconButton> */}
-                <Typography 
-                    variant="h4"
-                    className={classes.title}
+                <Link 
+                    to='/' 
+                    className={classes.title} 
                 >
-                    Placeholder
-                </Typography>
+                    <Typography variant="h4">
+                        Placeholder
+                    </Typography>
+                </Link>
                 <Switch
                     checked={darkMode}
                     onChange={()=>dispatch(toggleDarkMode())}
                     color='default'
+                    className={classes.right}
                 />
                 {darkMode 
                     ? <MoonIcon onClick={()=>dispatch(toggleDarkMode())} /> 

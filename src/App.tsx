@@ -36,9 +36,9 @@ const App = (): JSX.Element => {
 
     // choose theme based on state
     const darkMode = useAppSelector(selectDarkMode);
-    const theme = createMuiTheme(
-        darkMode ? darkThemeOptions : lightThemeOptions
-    );
+    const lightTheme = createMuiTheme(lightThemeOptions);
+    const darkTheme = createMuiTheme(darkThemeOptions);
+    const theme = darkMode ? darkTheme : lightTheme;
 
     return (
         // provider theme
@@ -47,27 +47,25 @@ const App = (): JSX.Element => {
             {/* normalize css */}
             <CssBaseline />
 
-            {/* include header on every page */}
-            <Header />
-
-            {/* main page contents in container */}
-            <Container>
-                {/* route based on url */}
                 <Router>
-                    <Switch>
+                    {/* include header on every page always with light theme */}
+                    <ThemeProvider theme={lightTheme}>
+                        <Header />
+                    </ThemeProvider>
 
-                        {/* main page */}
-                        <Route 
-                            exact path='/' 
-                            component={Counter} 
-                        />
-
-                        {/* default to 404 */}
-                        <Route component={NotFound} />
-
-                    </Switch>
+                    {/* route based on url */}
+                    <Container>
+                        <Switch>
+                            {/* main page */}
+                            <Route 
+                                exact path='/' 
+                                component={Counter} 
+                            />
+                            {/* default to 404 */}
+                            <Route component={NotFound} />
+                        </Switch>
+                    </Container>
                 </Router>
-            </Container>
         </ThemeProvider>
     );
 }
