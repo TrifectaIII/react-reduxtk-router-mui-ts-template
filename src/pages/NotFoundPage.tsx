@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '3rem',
     },
-    buttons: {
+    topGap: {
         marginTop: '3rem',
     },
 }));
@@ -46,12 +46,22 @@ const NotFoundPage = (props: RouteComponentProps<{}>): JSX.Element => {
             flexDirection='column'
             className={classes.root}
         >
-            <Typography variant='h1' align='center'>
+            <Typography 
+                variant='h2' 
+                align='center'
+            >
                 404: Not Found
+            </Typography>
+            <Typography 
+                variant='body1' 
+                align='center'
+                className={classes.topGap}
+            >
+                The resource you are looking for could not be found.
             </Typography>
             <ButtonGroup 
                 variant='contained'
-                className={classes.buttons}
+                className={classes.topGap}
             >
                 {/* buttons which function as links */}
                 <Button onClick={props.history.goBack} color='secondary'>
