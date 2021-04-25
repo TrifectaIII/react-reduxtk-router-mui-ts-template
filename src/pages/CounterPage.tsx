@@ -80,7 +80,6 @@ const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
             >
                 <Grid item xs={1}>
                     <Button
-                        aria-label="Decrement value"
                         onClick={() => dispatch(decrement())}
                         className={classes.fullWidth}
                         color='secondary'
@@ -99,7 +98,6 @@ const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
                 </Grid>
                 <Grid item xs={1}>
                     <Button
-                        aria-label="Increment value"
                         onClick={() => dispatch(increment())}
                         className={classes.fullWidth}
                         color='primary'
@@ -111,7 +109,6 @@ const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
             </Grid>
 
             <TextField
-                aria-label="Set increment amount"
                 value={incrementAmount}
                 onChange={(e) => setIncrementAmount(e.target.value)}
                 variant='outlined'
