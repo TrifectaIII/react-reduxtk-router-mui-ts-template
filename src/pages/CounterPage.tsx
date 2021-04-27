@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
     RouteComponentProps,
 } from 'react-router-dom';
@@ -17,7 +17,6 @@ import {
     useAppSelector, 
     useAppDispatch 
 } from '../state/hooks';
-import { setNavPoints } from '../state/globalSlice';
 import {
     decrement,
     increment,
@@ -55,19 +54,7 @@ const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
     const count = useAppSelector(selectCount);
     const dispatch = useAppDispatch();
 
-    //set nav points for header
-    useEffect(() => {
-        dispatch(setNavPoints([
-            {
-                name: 'Counter',
-                route: '/counter'
-            },
-        ]));
-    }, [dispatch]);
-    
-
     const [incrementAmount, setIncrementAmount] = useState('2');
-
     const incrementValue = Number(incrementAmount) || 0;
 
     return (

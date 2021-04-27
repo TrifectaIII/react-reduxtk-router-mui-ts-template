@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { 
     RouteComponentProps,
 } from 'react-router-dom';
@@ -15,9 +15,6 @@ import {
     Error as ErrorIcon,
 } from '@material-ui/icons';
 
-import { useAppDispatch } from '../state/hooks';
-import { setNavPoints } from '../state/globalSlice';
-
 const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '3rem',
@@ -31,13 +28,6 @@ const useStyles = makeStyles((theme) => ({
 const MainPage = (props: RouteComponentProps<{}>): JSX.Element => {
     
     const classes = useStyles();
-
-    const dispatch = useAppDispatch();
-
-    //set nav points for header
-    useEffect(() => {
-        dispatch(setNavPoints([]));
-    }, [dispatch]);
 
     return (
         <Box

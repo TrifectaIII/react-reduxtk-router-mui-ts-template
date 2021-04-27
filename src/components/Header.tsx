@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-    Link,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import {
     AppBar,
@@ -14,7 +12,6 @@ import {
 import { 
     Brightness3 as MoonIcon,
     Brightness7 as SunIcon,
-    NavigateNext as RightArrowIcon,
 } from '@material-ui/icons';
 
 import { 
@@ -24,7 +21,6 @@ import {
 import { 
     selectDarkMode, 
     toggleDarkMode, 
-    selectNavPoints 
 } from '../state/globalSlice';
 
 const useStyles = makeStyles((theme) => ({
@@ -61,7 +57,6 @@ const Header = (props: {}): JSX.Element => {
 
     const dispatch = useAppDispatch();
     const darkMode = useAppSelector(selectDarkMode);
-    const navPoints = useAppSelector(selectNavPoints);
 
     const DarkModeIcon = darkMode ? MoonIcon : SunIcon;
 
@@ -79,19 +74,6 @@ const Header = (props: {}): JSX.Element => {
                         Placeholder
                     </Typography>
                 </Link>
-                {navPoints.map((point) => 
-                    <>
-                    <RightArrowIcon />
-                    <Link 
-                        to={point.route}
-                        className={classes.title} 
-                    >
-                        <Typography variant="h6">
-                            {point.name}
-                        </Typography>
-                    </Link>
-                    </>
-                )}
 
                 {/* right side */}
                 <Box className={classes.right}>

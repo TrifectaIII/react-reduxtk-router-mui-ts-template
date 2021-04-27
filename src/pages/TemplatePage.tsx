@@ -12,7 +12,6 @@ import {
     useAppSelector, 
     useAppDispatch,
 } from '../state/hooks';
-import { setNavPoints } from '../state/globalSlice';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,16 +25,6 @@ const TemplatePage = (props: RouteComponentProps<{}>): JSX.Element => {
     const classes = useStyles();
 
     const dispatch = useAppDispatch();
-
-    //set nav points for header
-    useEffect(() => {
-        dispatch(setNavPoints([
-            {
-                name: 'Template',
-                route: '/template',
-            }
-        ]));
-    }, [dispatch]);
 
     return (
         <Box 
