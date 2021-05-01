@@ -26,6 +26,7 @@ import Header from './components/Header';
 import NavDrawer from './components/NavDrawer';
 import {useAppSelector} from './state/hooks';
 import {selectDarkMode} from './state/globalSlice';
+import {NavMap} from './types';
 
 // set up dark and light themes
 // https://material-ui.com/customization/color/#playground

@@ -33,6 +33,7 @@ import {
     toggleDarkMode,
     openNavDrawer,
 } from '../state/globalSlice';
+import {NavMap} from '../types';
 
 const useStyles = makeStyles((theme) => ({
     root: {

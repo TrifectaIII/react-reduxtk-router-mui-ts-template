@@ -105,7 +105,7 @@ module.exports = {
         'no-bitwise': 'error',
         'no-caller': 'error',
         'no-confusing-arrow': 'error',
-        'no-console': 'error',
+        'no-console': 'warn',
         'no-constructor-return': 'error',
         'no-continue': 'error',
         'no-div-regex': 'error',
@@ -242,7 +242,7 @@ module.exports = {
         'yield-star-spacing': 'error',
         'yoda': 'error',
         '@typescript-eslint/no-unused-vars': [
-            'error',
+            'warn',
             {args: 'none'},
         ],
         '@typescript-eslint/no-use-before-define': 'error',
