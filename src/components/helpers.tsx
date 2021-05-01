@@ -1,8 +1,6 @@
 import React from 'react';
 
-import {
-    Hidden,
-} from '@material-ui/core';
+import {Hidden} from '@material-ui/core';
 
 // wrapper components for mobile-only or desktop-only elements
 export const MobileOnly = (props: {
