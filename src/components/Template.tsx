@@ -5,18 +5,18 @@ import {
     makeStyles,
 } from '@material-ui/core';
 
-import { 
-    useAppSelector, 
-    useAppDispatch,
-} from '../state/hooks';
+// import {
+//     useAppSelector,
+//     useAppDispatch,
+// } from '../state/hooks';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        
+
     },
 }));
 
-// 
+// Template component
 const Template = (props: {}): JSX.Element => {
 
     const classes = useStyles();
@@ -26,6 +26,7 @@ const Template = (props: {}): JSX.Element => {
             Template Component
         </Box>
     );
-}
+
+};
 
 export default Template;

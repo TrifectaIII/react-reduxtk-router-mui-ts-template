@@ -15,10 +15,10 @@ import {
 
 import Main from './pages/MainPage';
 import Counter from './pages/CounterPage';
-import NotFound from './pages/NotFoundPage'
+import NotFound from './pages/NotFoundPage';
 import Header from './components/Header';
-import { useAppSelector } from './state/hooks';
-import { selectDarkMode } from './state/globalSlice';
+import {useAppSelector} from './state/hooks';
+import {selectDarkMode} from './state/globalSlice';
 
 // set up dark and light themes
 // https://material-ui.com/customization/color/#playground
@@ -32,7 +32,7 @@ const lightThemeOptions: ThemeOptions = {
             main: '#e65100',
         },
     },
-}
+};
 const darkThemeOptions: ThemeOptions = {
     palette: {
         type: 'dark',
@@ -43,7 +43,7 @@ const darkThemeOptions: ThemeOptions = {
             main: '#e65100',
         },
     },
-}
+};
 
 // Main App component
 const App = (): JSX.Element => {
@@ -87,6 +87,7 @@ const App = (): JSX.Element => {
             </Router>
         </ThemeProvider>
     );
-}
+
+};
 
 export default App;

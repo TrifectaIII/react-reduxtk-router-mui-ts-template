@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import {
     AppBar,
@@ -9,23 +9,23 @@ import {
     Box,
     makeStyles,
 } from '@material-ui/core';
-import { 
+import {
     Brightness3 as MoonIcon,
     Brightness7 as SunIcon,
 } from '@material-ui/icons';
 
-import { 
-    useAppSelector, 
+import {
+    useAppSelector,
     useAppDispatch,
 } from '../state/hooks';
-import { 
-    selectDarkMode, 
-    toggleDarkMode, 
+import {
+    selectDarkMode,
+    toggleDarkMode,
 } from '../state/globalSlice';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        
+
     },
     title: {
         color: theme.palette.common.white,
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     right: {
-        marginLeft: 'auto',
+        'marginLeft': 'auto',
     },
     dmToggle: {
         cursor: 'pointer',
@@ -66,22 +66,22 @@ const Header = (props: {}): JSX.Element => {
             className={classes.root}
         >
             <Toolbar>
-                <Link 
-                    to='/' 
-                    className={classes.title} 
+                <Link
+                    to='/'
+                    className={classes.title}
                 >
-                    <Typography variant="h5">
+                    <Typography variant='h5'>
                         Placeholder
                     </Typography>
                 </Link>
 
                 {/* right side */}
                 <Box className={classes.right}>
-                    <Box 
+                    <Box
                         alignItems='center'
                         justifyContent='center'
                         display='flex'
-                        onClick={()=>dispatch(toggleDarkMode())}
+                        onClick={() => dispatch(toggleDarkMode())}
                         className={classes.dmToggle}
                     >
                         <Switch
@@ -91,10 +91,11 @@ const Header = (props: {}): JSX.Element => {
                         <DarkModeIcon />
                     </Box>
                 </Box>
-               
+
             </Toolbar>
         </AppBar>
     );
-}
+
+};
 
 export default Header;

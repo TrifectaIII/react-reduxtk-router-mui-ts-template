@@ -1,6 +1,7 @@
 ## TODO
 
 - [ ] Implement responsive design for mobile view
+- [x] configure eslint
 - [x] Add template files for:
     - [x] component
     - [x] page

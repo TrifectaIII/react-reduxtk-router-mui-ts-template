@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
-import { RootState } from './store';
+import {RootState} from './store';
 
 // Slice of global state
 export interface GlobalState {
@@ -8,8 +8,8 @@ export interface GlobalState {
 }
 
 const initialState: GlobalState = {
-    darkMode: !!localStorage.getItem('darkMode'),
-}
+    darkMode: Boolean(localStorage.getItem('darkMode')),
+};
 
 export const globalSlice = createSlice({
     name: 'global',
@@ -17,16 +17,18 @@ export const globalSlice = createSlice({
     reducers: {
         // toggle the mode and save to localstorage
         toggleDarkMode: (state) => {
+
             state.darkMode = !state.darkMode;
-            localStorage.setItem('darkMode', state.darkMode ? 'on' : '') ;
+            localStorage.setItem('darkMode', state.darkMode ? 'on' : '');
+
         },
     },
 });
 
 // extract actions
-export const { toggleDarkMode } = globalSlice.actions;
+export const {toggleDarkMode} = globalSlice.actions;
 
-//selectors
-export const selectDarkMode = (state: RootState) => state.global.darkMode;
+// selectors
+export const selectDarkMode = (state: RootState): boolean => state.global.darkMode;
 
 export default globalSlice.reducer;

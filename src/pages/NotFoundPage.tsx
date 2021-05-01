@@ -1,9 +1,9 @@
 import React from 'react';
-import { 
+import {
     RouteComponentProps,
 } from 'react-router-dom';
 
-import { 
+import {
     Button,
     ButtonGroup,
     Typography,
@@ -36,20 +36,20 @@ const NotFoundPage = (props: RouteComponentProps<{}>): JSX.Element => {
             flexDirection='column'
             className={classes.root}
         >
-            <Typography 
-                variant='h2' 
+            <Typography
+                variant='h2'
                 align='center'
             >
                 404: Not Found
             </Typography>
-            <Typography 
-                variant='body1' 
+            <Typography
+                variant='body1'
                 align='center'
                 className={classes.topGap}
             >
                 The resource you are looking for could not be found.
             </Typography>
-            <ButtonGroup 
+            <ButtonGroup
                 variant='contained'
                 className={classes.topGap}
             >
@@ -57,13 +57,14 @@ const NotFoundPage = (props: RouteComponentProps<{}>): JSX.Element => {
                 <Button onClick={props.history.goBack} color='secondary'>
                     <BackIcon /> Back
                 </Button>
-                <Button onClick={()=>props.history.push('/')} color='primary'>
+                <Button onClick={() => props.history.push('/')} color='primary'>
                     <HomeIcon /> Home
                 </Button>
             </ButtonGroup>
-            
+
         </Box>
     );
-}
+
+};
 
 export default NotFoundPage;

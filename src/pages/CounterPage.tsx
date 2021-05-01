@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { 
+import React, {useState} from 'react';
+import {
     RouteComponentProps,
 } from 'react-router-dom';
 
@@ -13,9 +13,9 @@ import {
     makeStyles,
 } from '@material-ui/core';
 
-import { 
-    useAppSelector, 
-    useAppDispatch 
+import {
+    useAppSelector,
+    useAppDispatch,
 } from '../state/hooks';
 import {
     decrement,
@@ -26,13 +26,13 @@ import {
     selectCount,
 } from '../state/counterSlice';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((_theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop:'3rem',
+        marginTop: '3rem',
     },
     button404: {
         textDecoration: 'none',
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '1rem',
     },
     fullWidth: {
-        width:'100%',
+        width: '100%',
     },
 }));
 
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
 
     const classes = useStyles();
-    
+
     const count = useAppSelector(selectCount);
     const dispatch = useAppDispatch();
 
@@ -60,8 +60,8 @@ const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
     return (
         <Box className={classes.root}>
 
-            <Grid 
-                container 
+            <Grid
+                container
                 justify='center'
                 alignItems='center'
             >
@@ -76,11 +76,11 @@ const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
                     </Button>
                 </Grid>
                 <Grid item xs={3}>
-                    <Typography 
+                    <Typography
                         align='center'
                         variant='h1'
                     >
-                            {count}
+                        {count}
                     </Typography>
                 </Grid>
                 <Grid item xs={1}>
@@ -97,7 +97,7 @@ const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
 
             <TextField
                 value={incrementAmount}
-                onChange={(e) => setIncrementAmount(e.target.value)}
+                onChange={(event) => setIncrementAmount(event.target.value)}
                 variant='outlined'
                 className={classes.numInput}
             />
@@ -121,6 +121,7 @@ const CounterPage = (props: RouteComponentProps<{}>): JSX.Element => {
             </ButtonGroup>
         </Box>
     );
-}
+
+};
 
 export default CounterPage;

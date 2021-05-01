@@ -1,9 +1,9 @@
 import React from 'react';
-import { 
+import {
     RouteComponentProps,
 } from 'react-router-dom';
 
-import { 
+import {
     Button,
     ButtonGroup,
     Typography,
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 // main index page for empty route
 const MainPage = (props: RouteComponentProps<{}>): JSX.Element => {
-    
+
     const classes = useStyles();
 
     return (
@@ -36,8 +36,8 @@ const MainPage = (props: RouteComponentProps<{}>): JSX.Element => {
             flexDirection='column'
             className={classes.root}
         >
-            <Typography 
-                variant='h2' 
+            <Typography
+                variant='h2'
                 align='center'
             >
                 React-Reduxtk-Router-Mui-TS Template
@@ -47,15 +47,22 @@ const MainPage = (props: RouteComponentProps<{}>): JSX.Element => {
                 className={classes.buttons}
             >
                 {/* buttons which function as links */}
-                <Button onClick={()=>props.history.push('/counter')} color='primary'>
-                    <AppsIcon  />Counter App
+                <Button
+                    onClick={() => props.history.push('/counter')}
+                    color='primary'
+                >
+                    <AppsIcon />Counter App
                 </Button>
-                <Button onClick={()=>props.history.push('/nonexistant')} color='secondary'>
+                <Button
+                    onClick={() => props.history.push('/nonexistant')}
+                    color='secondary'
+                >
                     <ErrorIcon />Test 404 Page
                 </Button>
             </ButtonGroup>
         </Box>
     );
-}
+
+};
 
 export default MainPage;
