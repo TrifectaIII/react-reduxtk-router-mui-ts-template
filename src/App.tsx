@@ -12,11 +12,18 @@ import {
     createMuiTheme,
     ThemeOptions,
 } from '@material-ui/core';
+import {
+    Filter as FilterIcon,
+    Filter1 as Filter1Icon,
+    Filter2 as Filter2Icon,
+    Filter3 as Filter3Icon,
+} from '@material-ui/icons';
 
 import Main from './pages/MainPage';
 import Counter from './pages/CounterPage';
 import NotFound from './pages/NotFoundPage';
 import Header from './components/Header';
+import NavDrawer from './components/NavDrawer';
 import {useAppSelector} from './state/hooks';
 import {selectDarkMode} from './state/globalSlice';
 
@@ -45,6 +52,27 @@ const darkThemeOptions: ThemeOptions = {
     },
 };
 
+// Map of navigation points for header
+const navMap: NavMap = {
+    'Nav Point 1': {
+        icon: Filter1Icon,
+        route: '/np1',
+    },
+    'Nav Point Group': {
+        icon: FilterIcon,
+        children: {
+            'Nav Point 2': {
+                icon: Filter2Icon,
+                route: '/np2',
+            },
+            'Nav Point 3': {
+                icon: Filter3Icon,
+                route: '/np3',
+            },
+        },
+    },
+};
+
 // Main App component
 const App = (): JSX.Element => {
 
@@ -64,8 +92,10 @@ const App = (): JSX.Element => {
             <Router>
                 {/* include header on every page always with light theme */}
                 <ThemeProvider theme={lightTheme}>
-                    <Header />
+                    <Header navMap={navMap} />
                 </ThemeProvider>
+
+                <NavDrawer navMap={navMap} />
 
                 {/* route based on url */}
                 <Container>

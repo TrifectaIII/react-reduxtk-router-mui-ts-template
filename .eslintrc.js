@@ -86,9 +86,7 @@ module.exports = {
         'max-depth': 'error',
         'max-len': [
             'error',
-            {
-                code: 100,
-            },
+            {code: 100},
         ],
         'max-lines': 'error',
         // 'max-lines-per-function': 'error',
@@ -135,9 +133,7 @@ module.exports = {
         'no-loss-of-precision': 'error',
         'no-magic-numbers': [
             'error',
-            {
-                ignore: [0, 1, 2],
-            },
+            {ignore: [0, 1, 2]},
         ],
         'no-mixed-operators': 'error',
         'no-multi-assign': 'error',
