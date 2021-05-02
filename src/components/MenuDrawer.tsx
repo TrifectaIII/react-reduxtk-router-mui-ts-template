@@ -57,12 +57,12 @@ const MenuDrawer = (props: {
 
     const open = useAppSelector(selectMenuDrawerOpen);
 
+    // Generate navitems jsx from navmap
     const navItems: JSX.Element[] = [];
-
     Object.entries(props.navMap).
         forEach(([name, point], index) => {
 
-            if (point.route) {
+            if ('route' in point) {
 
                 navItems.push(<Link
                     to={point.route}
@@ -73,13 +73,11 @@ const MenuDrawer = (props: {
                         <ListItemIcon>
                             <point.icon />
                         </ListItemIcon>
-                        <ListItemText>
-                            {name}
-                        </ListItemText>
+                        <ListItemText primary={name} />
                     </ListItem>
                 </Link>);
 
-            } else if (point.children) {
+            } else {
 
                 navItems.push(<ListItem
                     key={name}
@@ -88,9 +86,7 @@ const MenuDrawer = (props: {
                     <ListItemIcon className={classes.inactive}>
                         <point.icon />
                     </ListItemIcon>
-                    <ListItemText>
-                        {name}
-                    </ListItemText>
+                    <ListItemText primary={name} />
                 </ListItem>);
 
                 Object.entries(point.children).
@@ -108,9 +104,7 @@ const MenuDrawer = (props: {
                                 <ListItemIcon>
                                     <cPoint.icon />
                                 </ListItemIcon>
-                                <ListItemText>
-                                    {cName}
-                                </ListItemText>
+                                <ListItemText primary={cName} />
                             </ListItem>
                         </Link>);
 

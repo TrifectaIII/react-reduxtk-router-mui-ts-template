@@ -1,28 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 
 import {
     AppBar,
+    Box,
     Toolbar,
     Typography,
     IconButton,
-    // List,
-    // ListItem,
-    // ListItemIcon,
-    // ListItemText,
     Tooltip,
+    Menu,
+    MenuItem,
+    ListItemIcon,
+    ListItemText,
     makeStyles,
 } from '@material-ui/core';
 import {
     Brightness3 as MoonIcon,
     Brightness7 as SunIcon,
     Menu as MenuIcon,
+    ArrowDropDown as ExpandIcon,
 } from '@material-ui/icons';
 import clsx from 'clsx';
 
 import {
     MobileOnly,
-    // DesktopOnly,
+    DesktopOnly,
 } from './helpers';
 import {
     useAppSelector,
@@ -67,6 +69,90 @@ const Header = (props: {
 
     const DarkModeIcon = darkMode ? SunIcon : MoonIcon;
 
+    // Generate state for any nav group menus
+    const states: {
+        [key: string]: {
+            value: EventTarget & HTMLSpanElement | null,
+            setter: React.Dispatch<React.SetStateAction<EventTarget & HTMLSpanElement | null>>,
+        }
+    } = {};
+    Object.entries(props.navMap).forEach(([name, point]) => {
+
+        if ('children' in point) {
+
+            const [value, setter] = useState<EventTarget & HTMLSpanElement | null>(null);
+            states[name] = {
+                value,
+                setter,
+            };
+
+        }
+
+    });
+
+    // Generate navitems jsx from navmap
+    const navItems: JSX.Element[] = [];
+    Object.entries(props.navMap).forEach(([name, point]) => {
+
+        if ('route' in point) {
+
+            navItems.push(<Link
+                to={point.route}
+                key={name}
+            >
+                <Typography variant='body1'>
+                    {name}
+                </Typography>
+            </Link>);
+
+        } else {
+
+            navItems.push(<React.Fragment key={name}>
+                <Box
+                    display='flex'
+                    onClick={(event) => states[name].setter(event.currentTarget)}
+                >
+                    <Typography variant='body1'>
+                        {name}
+                    </Typography>
+                    <ExpandIcon />
+                </Box>
+
+                <Menu
+                    anchorEl={states[name].value}
+                    open={Boolean(states[name].value)}
+                    onClose={() => states[name].setter(null)}
+                    elevation={0}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                    }}
+                    keepMounted
+                >
+                    {Object.entries(point.children).
+                        map(([cName, cPoint]) => <Link
+                            to={cPoint.route}
+                            key={cName}
+                        >
+                            <MenuItem>
+                                <ListItemIcon>
+                                    <cPoint.icon />
+                                </ListItemIcon>
+                                <ListItemText primary={cName} />
+                            </MenuItem>
+                        </Link>)
+                    }
+                </Menu>
+            </React.Fragment>);
+
+        }
+
+    });
+
     return (
         <AppBar
             position='static'
@@ -94,6 +180,14 @@ const Header = (props: {
                         Placeholder
                     </Typography>
                 </Link>
+
+                <DesktopOnly>
+                    <Box
+                        display='flex'
+                    >
+                        {navItems}
+                    </Box>
+                </DesktopOnly>
 
                 {/* right side */}
                 <Tooltip

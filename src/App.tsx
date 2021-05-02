@@ -91,11 +91,8 @@ const App = (): JSX.Element => {
             <CssBaseline />
 
             <Router>
-                {/* include header on every page always with light theme */}
-                <ThemeProvider theme={lightTheme}>
-                    <Header navMap={navMap} />
-                </ThemeProvider>
-
+                {/* include header and menu on every page */}
+                <Header navMap={navMap} />
                 <MenuDrawer navMap={navMap} />
 
                 {/* route based on url */}

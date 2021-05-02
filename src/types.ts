@@ -5,8 +5,10 @@ import {OverridableComponent} from '@material-ui/core/OverridableComponent';
 export interface NavMap {
     [key: string]: {
         icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>,
-        route?: string,
-        children?: {
+        route: string,
+    } | {
+        icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>,
+        children: {
             [key: string]:{
                 icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>,
                 route: string,
