@@ -23,7 +23,7 @@ import Main from './pages/MainPage';
 import Counter from './pages/CounterPage';
 import NotFound from './pages/NotFoundPage';
 import Header from './components/Header';
-import NavDrawer from './components/NavDrawer';
+import MenuDrawer from './components/MenuDrawer';
 import {useAppSelector} from './state/hooks';
 import {selectDarkMode} from './state/globalSlice';
 import {NavMap} from './types';
@@ -96,7 +96,7 @@ const App = (): JSX.Element => {
                     <Header navMap={navMap} />
                 </ThemeProvider>
 
-                <NavDrawer navMap={navMap} />
+                <MenuDrawer navMap={navMap} />
 
                 {/* route based on url */}
                 <Container>

@@ -21,9 +21,9 @@ import {
     useAppDispatch,
 } from '../state/hooks';
 import {
-    selectNavDrawerOpen,
-    openNavDrawer,
-    closeNavDrawer,
+    selectMenuDrawerOpen,
+    openMenuDrawer,
+    closeMenuDrawer,
 } from '../state/globalSlice';
 import {NavMap} from '../types';
 
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // drawer for navigation on mobile view
-const NavDrawer = (props: {
+const MenuDrawer = (props: {
     navMap: NavMap,
 }): JSX.Element => {
 
@@ -55,7 +55,7 @@ const NavDrawer = (props: {
 
     const dispatch = useAppDispatch();
 
-    const open = useAppSelector(selectNavDrawerOpen);
+    const open = useAppSelector(selectMenuDrawerOpen);
 
     const navItems: JSX.Element[] = [];
 
@@ -132,8 +132,8 @@ const NavDrawer = (props: {
             <SwipeableDrawer
                 anchor='left'
                 open={open}
-                onOpen={() => dispatch(openNavDrawer())}
-                onClose={() => dispatch(closeNavDrawer())}
+                onOpen={() => dispatch(openMenuDrawer())}
+                onClose={() => dispatch(closeMenuDrawer())}
             >
                 <Box className={classes.root}>
                     <List>
@@ -146,4 +146,4 @@ const NavDrawer = (props: {
 
 };
 
-export default NavDrawer;
+export default MenuDrawer;

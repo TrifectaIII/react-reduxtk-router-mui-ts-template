@@ -5,12 +5,12 @@ import {RootState} from './store';
 // Slice of global state
 export interface GlobalState {
     darkMode: boolean;
-    navDrawerOpen: boolean;
+    menuDrawerOpen: boolean;
 }
 
 const initialState: GlobalState = {
     darkMode: Boolean(localStorage.getItem('darkMode')),
-    navDrawerOpen: false,
+    menuDrawerOpen: false,
 };
 
 export const globalSlice = createSlice({
@@ -24,24 +24,24 @@ export const globalSlice = createSlice({
             localStorage.setItem('darkMode', state.darkMode ? 'on' : '');
 
         },
-        openNavDrawer: (state) => {
+        openMenuDrawer: (state) => {
 
-            state.navDrawerOpen = true;
+            state.menuDrawerOpen = true;
 
         },
-        closeNavDrawer: (state) => {
+        closeMenuDrawer: (state) => {
 
-            state.navDrawerOpen = false;
+            state.menuDrawerOpen = false;
 
         },
     },
 });
 
 // extract actions
-export const {toggleDarkMode, openNavDrawer, closeNavDrawer} = globalSlice.actions;
+export const {toggleDarkMode, openMenuDrawer, closeMenuDrawer} = globalSlice.actions;
 
 // selectors
 export const selectDarkMode = (state: RootState): boolean => state.global.darkMode;
-export const selectNavDrawerOpen = (state: RootState): boolean => state.global.navDrawerOpen;
+export const selectMenuDrawerOpen = (state: RootState): boolean => state.global.menuDrawerOpen;
 
 export default globalSlice.reducer;

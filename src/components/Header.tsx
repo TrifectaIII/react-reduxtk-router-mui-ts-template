@@ -31,7 +31,7 @@ import {
 import {
     selectDarkMode,
     toggleDarkMode,
-    openNavDrawer,
+    openMenuDrawer,
 } from '../state/globalSlice';
 import {NavMap} from '../types';
 
@@ -79,7 +79,7 @@ const Header = (props: {
                     <IconButton
                         edge='start'
                         className={classes.white}
-                        onClick={() => dispatch(openNavDrawer())}
+                        onClick={() => dispatch(openMenuDrawer())}
                     >
                         <MenuIcon color='inherit' />
                     </IconButton>

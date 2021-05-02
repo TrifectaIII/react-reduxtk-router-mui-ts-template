@@ -79,7 +79,7 @@ module.exports = {
         'key-spacing': 'error',
         'keyword-spacing': 'error',
         'line-comment-position': 'error',
-        'linebreak-style': 'error',
+        // 'linebreak-style': 'error',
         'lines-around-comment': 'error',
         'lines-between-class-members': 'error',
         'max-classes-per-file': 'error',
