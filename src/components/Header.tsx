@@ -46,14 +46,16 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         textDecoration: 'none',
+    },
+    right: {
+        'marginLeft': 'auto',
+    },
+    selectArea: {
         borderRadius: '0.5rem',
         padding: '0.5rem 1rem',
         '&:hover': {
             backgroundColor: 'rgba(255, 255, 255, 0.2)',
         },
-    },
-    right: {
-        'marginLeft': 'auto',
     },
 }));
 
@@ -99,10 +101,14 @@ const Header = (props: {
             navItems.push(<Link
                 to={point.route}
                 key={name}
+                className={clsx(classes.selectArea)}
             >
-                <Typography variant='body1'>
-                    {name}
-                </Typography>
+                <Box display='flex'>
+                    <point.icon />
+                    <Typography variant='body1'>
+                        {name}
+                    </Typography>
+                </Box>
             </Link>);
 
         } else {
@@ -111,7 +117,9 @@ const Header = (props: {
                 <Box
                     display='flex'
                     onClick={(event) => states[name].setter(event.currentTarget)}
+                    className={clsx(classes.selectArea)}
                 >
+                    <point.icon />
                     <Typography variant='body1'>
                         {name}
                     </Typography>
@@ -119,6 +127,7 @@ const Header = (props: {
                 </Box>
 
                 <Menu
+                    getContentAnchorEl={null}
                     anchorEl={states[name].value}
                     open={Boolean(states[name].value)}
                     onClose={() => states[name].setter(null)}
@@ -128,7 +137,7 @@ const Header = (props: {
                         horizontal: 'center',
                     }}
                     transformOrigin={{
-                        vertical: 'bottom',
+                        vertical: 'top',
                         horizontal: 'center',
                     }}
                     keepMounted
@@ -174,7 +183,11 @@ const Header = (props: {
 
                 <Link
                     to='/'
-                    className={clsx(classes.title, classes.white)}
+                    className={clsx(
+                        classes.title,
+                        classes.white,
+                        classes.selectArea
+                    )}
                 >
                     <Typography variant='h5'>
                         Placeholder
