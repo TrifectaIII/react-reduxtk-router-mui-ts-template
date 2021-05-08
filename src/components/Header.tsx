@@ -44,15 +44,22 @@ const useStyles = makeStyles((theme) => ({
     white: {
         color: theme.palette.common.white,
     },
-    title: {
+    textcolor: {
+        color: theme.palette.text.primary,
+    },
+    noDec: {
         textDecoration: 'none',
     },
-    right: {
+    rightSide: {
         'marginLeft': 'auto',
+    },
+    spaceRight: {
+        marginRight: '1rem',
     },
     selectArea: {
         borderRadius: '0.5rem',
         padding: '0.5rem 1rem',
+        cursor: 'pointer',
         '&:hover': {
             backgroundColor: 'rgba(255, 255, 255, 0.2)',
         },
@@ -101,10 +108,14 @@ const Header = (props: {
             navItems.push(<Link
                 to={point.route}
                 key={name}
-                className={clsx(classes.selectArea)}
+                className={clsx(
+                    classes.selectArea,
+                    classes.white,
+                    classes.noDec
+                )}
             >
                 <Box display='flex'>
-                    <point.icon />
+                    <point.icon className={classes.spaceRight} />
                     <Typography variant='body1'>
                         {name}
                     </Typography>
@@ -119,7 +130,7 @@ const Header = (props: {
                     onClick={(event) => states[name].setter(event.currentTarget)}
                     className={clsx(classes.selectArea)}
                 >
-                    <point.icon />
+                    <point.icon className={classes.spaceRight} />
                     <Typography variant='body1'>
                         {name}
                     </Typography>
@@ -146,6 +157,10 @@ const Header = (props: {
                         map(([cName, cPoint]) => <Link
                             to={cPoint.route}
                             key={cName}
+                            className={clsx(
+                                classes.noDec,
+                                classes.textcolor
+                            )}
                         >
                             <MenuItem>
                                 <ListItemIcon>
@@ -184,7 +199,7 @@ const Header = (props: {
                 <Link
                     to='/'
                     className={clsx(
-                        classes.title,
+                        classes.noDec,
                         classes.white,
                         classes.selectArea
                     )}
@@ -205,7 +220,7 @@ const Header = (props: {
                 {/* right side */}
                 <Tooltip
                     title={darkMode ? 'Light Mode' : 'Dark Mode'}
-                    className={classes.right}
+                    className={classes.rightSide}
                 >
                     <IconButton
                         edge='end'
