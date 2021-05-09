@@ -111,7 +111,7 @@ const Header = (props: {
                 className={clsx(
                     classes.selectArea,
                     classes.white,
-                    classes.noDec
+                    classes.noDec,
                 )}
             >
                 <Box display='flex'>
@@ -159,7 +159,7 @@ const Header = (props: {
                             key={cName}
                             className={clsx(
                                 classes.noDec,
-                                classes.textcolor
+                                classes.textcolor,
                             )}
                         >
                             <MenuItem>
@@ -201,7 +201,7 @@ const Header = (props: {
                     className={clsx(
                         classes.noDec,
                         classes.white,
-                        classes.selectArea
+                        classes.selectArea,
                     )}
                 >
                     <Typography variant='h5'>

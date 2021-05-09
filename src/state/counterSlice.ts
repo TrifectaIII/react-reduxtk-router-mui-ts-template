@@ -34,7 +34,7 @@ export const incrementAsync = createAsyncThunk(
         // The value we return becomes the `fulfilled` action payload
         return response.data;
 
-    }
+    },
 );
 
 export const counterSlice = createSlice({
@@ -94,7 +94,7 @@ export const selectCount = (state: RootState): number => state.counter.value;
 // Here's an example of conditionally dispatching actions based on current state.
 export const incrementIfOdd = (amount: number): AppThunk => (
     dispatch,
-    getState
+    getState,
 ) => {
 
     const currentValue = selectCount(getState());
