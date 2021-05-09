@@ -22,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
     topGap: {
         marginTop: '3rem',
     },
+    route: {
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        padding: '0.5rem',
+        borderRadius: '0.5rem',
+    },
 }));
 
 // 404 not found error page
@@ -47,7 +52,9 @@ const NotFoundPage = (props: RouteComponentProps<{}>): JSX.Element => {
                 align='center'
                 className={classes.topGap}
             >
-                The resource you are looking for could not be found.
+                <code className={classes.route}>
+                    {props.location.pathname}
+                </code> could not be found.
             </Typography>
             <ButtonGroup
                 variant='contained'

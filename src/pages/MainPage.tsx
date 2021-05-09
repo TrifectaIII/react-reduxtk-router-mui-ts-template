@@ -54,7 +54,7 @@ const MainPage = (props: RouteComponentProps<{}>): JSX.Element => {
                     <AppsIcon />Counter App
                 </Button>
                 <Button
-                    onClick={() => props.history.push('/nonexistant')}
+                    onClick={() => props.history.push('/nonexistent')}
                     color='secondary'
                 >
                     <ErrorIcon />Test 404 Page
