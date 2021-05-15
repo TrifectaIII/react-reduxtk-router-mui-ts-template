@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core';
 import {
     Filter as FilterIcon,
-    Filter1 as Filter1Icon,
+    Apps as AppsIcon,
     Filter2 as Filter2Icon,
     Filter3 as Filter3Icon,
 } from '@material-ui/icons';
@@ -55,9 +55,9 @@ const darkThemeOptions: ThemeOptions = {
 
 // Map of navigation points for header
 const navMap: NavMap = {
-    'Nav Point 1': {
-        icon: Filter1Icon,
-        route: '/np1',
+    'Counter App': {
+        icon: AppsIcon,
+        route: '/counter',
     },
     'Nav Point Group': {
         icon: FilterIcon,
