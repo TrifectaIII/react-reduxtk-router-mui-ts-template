@@ -162,7 +162,9 @@ const Header = (props: {
                                 classes.textcolor,
                             )}
                         >
-                            <MenuItem>
+                            <MenuItem
+                                onClick={() => states[name].setter(null)}
+                            >
                                 <ListItemIcon>
                                     <cPoint.icon />
                                 </ListItemIcon>

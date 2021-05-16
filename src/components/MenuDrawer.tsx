@@ -68,6 +68,7 @@ const MenuDrawer = (props: {
                     to={point.route}
                     key={name}
                     className={classes.linkText}
+                    onClick={() => dispatch(closeMenuDrawer())}
                 >
                     <ListItem>
                         <ListItemIcon>
@@ -96,6 +97,7 @@ const MenuDrawer = (props: {
                             to={cPoint.route}
                             key={cName}
                             className={classes.linkText}
+                            onClick={() => dispatch(closeMenuDrawer())}
                         >
                             <ListItem>
                                 <ListItemIcon>
