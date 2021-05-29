@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 
 import {
+    Button,
     AppBar,
     Box,
     Toolbar,
@@ -51,18 +52,15 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: 'none',
     },
     rightSide: {
-        'marginLeft': 'auto',
+        marginLeft: 'auto',
     },
     spaceRight: {
         marginRight: '1rem',
     },
-    selectArea: {
-        borderRadius: '0.5rem',
-        padding: '0.5rem 1rem',
-        cursor: 'pointer',
-        '&:hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.2)',
-        },
+    navButton: {
+        color: theme.palette.common.white,
+        textTransform: 'none',
+        marginRight: '1rem',
     },
 }));
 
@@ -109,33 +107,31 @@ const Header = (props: {
                 to={point.route}
                 key={name}
                 className={clsx(
-                    classes.selectArea,
                     classes.white,
                     classes.noDec,
                 )}
             >
-                <Box display='flex'>
+                <Button className={classes.navButton}>
                     <point.icon className={classes.spaceRight} />
                     <Typography variant='body1'>
                         {name}
                     </Typography>
-                </Box>
+                </Button>
             </Link>);
 
         } else {
 
             navItems.push(<React.Fragment key={name}>
-                <Box
-                    display='flex'
+                <Button
                     onClick={(event) => states[name].setter(event.currentTarget)}
-                    className={clsx(classes.selectArea)}
+                    className={classes.navButton}
                 >
                     <point.icon className={classes.spaceRight} />
                     <Typography variant='body1'>
                         {name}
                     </Typography>
                     <ExpandIcon />
-                </Box>
+                </Button>
 
                 <Menu
                     getContentAnchorEl={null}
@@ -203,12 +199,13 @@ const Header = (props: {
                     className={clsx(
                         classes.noDec,
                         classes.white,
-                        classes.selectArea,
                     )}
                 >
-                    <Typography variant='h5'>
-                        Placeholder
-                    </Typography>
+                    <Button className={classes.navButton}>
+                        <Typography variant='h5'>
+                            Placeholder
+                        </Typography>
+                    </Button>
                 </Link>
 
                 <DesktopOnly>
