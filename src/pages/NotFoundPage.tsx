@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '3rem',
     },
     route: {
-        backgroundColor: 'rgba(128, 128, 128, 0.2)',
+        backgroundColor: 'rgba(128, 128, 128, 0.3)',
         padding: '0.5rem',
         borderRadius: '0.5rem',
     },
