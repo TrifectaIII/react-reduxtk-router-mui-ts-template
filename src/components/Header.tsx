@@ -23,6 +23,7 @@ import {
 } from '@material-ui/icons';
 import clsx from 'clsx';
 
+import {navMap} from '../Navigation';
 import {
     MobileOnly,
     DesktopOnly,
@@ -36,7 +37,6 @@ import {
     toggleDarkMode,
     openMenuDrawer,
 } from '../state/globalSlice';
-import {NavMap} from '../types';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -65,9 +65,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Main page header for navigation, global state
-const Header = (props: {
-    navMap: NavMap,
-}): JSX.Element => {
+const Header = (props: {}): JSX.Element => {
 
     const classes = useStyles();
 
@@ -83,7 +81,7 @@ const Header = (props: {
             setter: React.Dispatch<React.SetStateAction<EventTarget & HTMLSpanElement | null>>,
         }
     } = {};
-    Object.entries(props.navMap).forEach(([name, point]) => {
+    Object.entries(navMap).forEach(([name, point]) => {
 
         if ('children' in point) {
 
@@ -99,7 +97,7 @@ const Header = (props: {
 
     // Generate navitems jsx from navmap
     const navItems: JSX.Element[] = [];
-    Object.entries(props.navMap).forEach(([name, point]) => {
+    Object.entries(navMap).forEach(([name, point]) => {
 
         if ('route' in point) {
 

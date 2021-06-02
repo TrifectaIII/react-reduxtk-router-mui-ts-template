@@ -12,12 +12,6 @@ import {
     createMuiTheme,
     ThemeOptions,
 } from '@material-ui/core';
-import {
-    Filter as FilterIcon,
-    Apps as AppsIcon,
-    Filter2 as Filter2Icon,
-    Filter3 as Filter3Icon,
-} from '@material-ui/icons';
 
 import Main from './pages/MainPage';
 import Counter from './pages/CounterPage';
@@ -26,7 +20,6 @@ import Header from './components/Header';
 import MenuDrawer from './components/MenuDrawer';
 import {useAppSelector} from './state/hooks';
 import {selectDarkMode} from './state/globalSlice';
-import {NavMap} from './types';
 
 // set up dark and light themes
 // https://material-ui.com/customization/color/#playground
@@ -53,27 +46,6 @@ const darkThemeOptions: ThemeOptions = {
     },
 };
 
-// Map of navigation points for header
-const navMap: NavMap = {
-    'Counter App': {
-        icon: AppsIcon,
-        route: '/counter',
-    },
-    'Nav Point Group': {
-        icon: FilterIcon,
-        children: {
-            'Nav Point 2': {
-                icon: Filter2Icon,
-                route: '/np2',
-            },
-            'Nav Point 3': {
-                icon: Filter3Icon,
-                route: '/np3',
-            },
-        },
-    },
-};
-
 // Main App component
 const App = (): JSX.Element => {
 
@@ -92,8 +64,8 @@ const App = (): JSX.Element => {
 
             <Router>
                 {/* include header and menu on every page */}
-                <Header navMap={navMap} />
-                <MenuDrawer navMap={navMap} />
+                <Header />
+                <MenuDrawer />
 
                 {/* route based on url */}
                 <Container>

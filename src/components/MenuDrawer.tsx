@@ -15,6 +15,7 @@ import {
     ArrowRightAlt as InnerIcon,
 } from '@material-ui/icons';
 
+import {navMap} from '../Navigation';
 import {MobileOnly} from './helpers';
 import {
     useAppSelector,
@@ -25,7 +26,6 @@ import {
     openMenuDrawer,
     closeMenuDrawer,
 } from '../state/globalSlice';
-import {NavMap} from '../types';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,9 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // drawer for navigation on mobile view
-const MenuDrawer = (props: {
-    navMap: NavMap,
-}): JSX.Element => {
+const MenuDrawer = (props: {}): JSX.Element => {
 
     const classes = useStyles();
 
@@ -59,7 +57,7 @@ const MenuDrawer = (props: {
 
     // Generate navitems jsx from navmap
     const navItems: JSX.Element[] = [];
-    Object.entries(props.navMap).
+    Object.entries(navMap).
         forEach(([name, point], index) => {
 
             if ('route' in point) {
@@ -115,7 +113,7 @@ const MenuDrawer = (props: {
             }
 
             // add a divider it its not the last point
-            if (index < Object.keys(props.navMap).length - 1) {
+            if (index < Object.keys(navMap).length - 1) {
 
                 navItems.push(<Divider key={`div${index}`} />);
 
