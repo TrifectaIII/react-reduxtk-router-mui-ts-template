@@ -174,62 +174,66 @@ const Header = (props: {}): JSX.Element => {
     });
 
     return (
-        <AppBar
-            position='static'
-            className={classes.root}
-        >
-            <Toolbar>
+        <>
+            <AppBar
+                position='static'
+                className={classes.root}
+            >
+                <Toolbar>
 
-                <MobileOnly>
+                    <MobileOnly>
 
-                    <IconButton
-                        edge='start'
-                        className={classes.white}
-                        onClick={() => dispatch(openMenuDrawer())}
+                        <IconButton
+                            edge='start'
+                            className={classes.white}
+                            onClick={() => dispatch(openMenuDrawer())}
+                        >
+                            <MenuIcon color='inherit' />
+                        </IconButton>
+
+                    </MobileOnly>
+
+                    <Link
+                        to='/'
+                        className={clsx(
+                            classes.noDec,
+                            classes.white,
+                        )}
                     >
-                        <MenuIcon color='inherit' />
-                    </IconButton>
+                        <Button className={classes.navButton}>
+                            <Typography variant='h5'>
+                                Placeholder
+                            </Typography>
+                        </Button>
+                    </Link>
 
-                </MobileOnly>
+                    <DesktopOnly>
+                        <Box
+                            display='flex'
+                        >
+                            {navItems}
+                        </Box>
+                    </DesktopOnly>
 
-                <Link
-                    to='/'
-                    className={clsx(
-                        classes.noDec,
-                        classes.white,
-                    )}
-                >
-                    <Button className={classes.navButton}>
-                        <Typography variant='h5'>
-                            Placeholder
-                        </Typography>
-                    </Button>
-                </Link>
-
-                <DesktopOnly>
-                    <Box
-                        display='flex'
+                    {/* right side */}
+                    <Tooltip
+                        title={darkMode ? 'Light Mode' : 'Dark Mode'}
+                        className={classes.rightSide}
                     >
-                        {navItems}
-                    </Box>
-                </DesktopOnly>
+                        <IconButton
+                            edge='end'
+                            className={classes.white}
+                            onClick={() => dispatch(toggleDarkMode())}
+                        >
+                            <DarkModeIcon />
+                        </IconButton>
+                    </Tooltip>
 
-                {/* right side */}
-                <Tooltip
-                    title={darkMode ? 'Light Mode' : 'Dark Mode'}
-                    className={classes.rightSide}
-                >
-                    <IconButton
-                        edge='end'
-                        className={classes.white}
-                        onClick={() => dispatch(toggleDarkMode())}
-                    >
-                        <DarkModeIcon />
-                    </IconButton>
-                </Tooltip>
-
-            </Toolbar>
-        </AppBar>
+                </Toolbar>
+            </AppBar>
+            {/* toolbar for ofsetting page elements */}
+            <Toolbar />
+        </>
     );
 
 };
