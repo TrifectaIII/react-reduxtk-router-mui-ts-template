@@ -176,7 +176,7 @@ const Header = (props: {}): JSX.Element => {
     return (
         <>
             <AppBar
-                position='static'
+                position='fixed'
                 className={classes.root}
             >
                 <Toolbar>
@@ -231,7 +231,7 @@ const Header = (props: {}): JSX.Element => {
 
                 </Toolbar>
             </AppBar>
-            {/* toolbar for ofsetting page elements */}
+            {/* toolbar for ofsetting page elements when bar is fixed */}
             <Toolbar />
         </>
     );
