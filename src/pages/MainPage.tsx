@@ -40,7 +40,7 @@ const MainPage = (props: RouteComponentProps<{}>): JSX.Element => {
                 variant='h2'
                 align='center'
             >
-                React-Reduxtk-Router-Mui-TS Template
+                React-ReduxTK-Router-MUI-TS Template
             </Typography>
             <ButtonGroup
                 variant='contained'
