@@ -9,7 +9,7 @@ export interface GlobalState {
 }
 
 const initialState: GlobalState = {
-    darkMode: Boolean(localStorage.getItem('darkMode')),
+    darkMode: !localStorage.getItem('lightMode'),
     menuDrawerOpen: false,
 };
 
@@ -21,7 +21,7 @@ export const globalSlice = createSlice({
         toggleDarkMode: (state) => {
 
             state.darkMode = !state.darkMode;
-            localStorage.setItem('darkMode', state.darkMode ? 'on' : '');
+            localStorage.setItem('lightMode', state.darkMode ? '' : 'on');
 
         },
         openMenuDrawer: (state) => {

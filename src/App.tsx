@@ -9,7 +9,7 @@ import {
     Container,
     CssBaseline,
     ThemeProvider,
-    createMuiTheme,
+    createTheme as createMuiTheme,
     responsiveFontSizes,
     Theme,
     ThemeOptions,
