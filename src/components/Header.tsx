@@ -27,7 +27,7 @@ import {navMap} from '../Navigation';
 import {
     MobileOnly,
     DesktopOnly,
-} from './helpers';
+} from './utilities';
 import {
     useAppSelector,
     useAppDispatch,

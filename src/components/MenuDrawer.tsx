@@ -16,7 +16,7 @@ import {
 } from '@material-ui/icons';
 
 import {navMap} from '../Navigation';
-import {MobileOnly} from './helpers';
+import {MobileOnly} from './utilities';
 import {
     useAppSelector,
     useAppDispatch,
