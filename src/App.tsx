@@ -9,7 +9,7 @@ import {
     Container,
     CssBaseline,
     ThemeProvider,
-    createTheme as createMuiTheme,
+    createTheme,
     responsiveFontSizes,
     Theme,
     ThemeOptions,
@@ -24,8 +24,8 @@ import {useAppSelector} from './state/hooks';
 import {selectDarkMode} from './state/globalSlice';
 
 // helper function for generating themes
-const createTheme =
-    (options: ThemeOptions): Theme => responsiveFontSizes(createMuiTheme(options));
+const createAppTheme =
+    (options: ThemeOptions): Theme => responsiveFontSizes(createTheme(options));
 
 // set up dark and light themes
 // https://material-ui.com/customization/color/#playground
@@ -57,8 +57,8 @@ const App = (): JSX.Element => {
 
     // choose theme based on state
     const darkMode = useAppSelector(selectDarkMode);
-    const lightTheme = createTheme(lightThemeOptions);
-    const darkTheme = createTheme(darkThemeOptions);
+    const lightTheme = createAppTheme(lightThemeOptions);
+    const darkTheme = createAppTheme(darkThemeOptions);
     const theme = darkMode ? darkTheme : lightTheme;
 
     return (
